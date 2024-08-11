@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPR Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <h1>CPR Timer</h1>
+        <div class="main-content">
+            <div class="instructions">
+                <h2>Инструкции за КПР</h2>
+                <ol>
+                    <li>Проверете дали лицето е в безопасност и се уверете, че вие сте в безопасност.</li>
+                    <li>Опитайте да го събудите, като го разтърсите и извикате.</li>
+                    <li>Проверете за нормално дишане.</li>
+                    <li>Обадете се на спешна помощ или помолете някой да го направи.</li>
+                    <li>Започнете КПР: 30 натискания на гърдите и 2 изкуствени вдишвания.</li>
+                    <li>Продължавайте КПР докато не пристигне помощ или лицето покаже признаци на живот.</li>
+                </ol>
+            </div>
+            <div class="timer">
+                <h2>Таймер</h2>
+                <div id="timer" class="timer-display">0:00</div>
+                <button id="toggle-timer">Започнете Таймер</button>
+                <button id="reset-timer" disabled>Нулиране на Таймера</button>
+            </div>
+            <div id="rhythm-indicator" class="instructions">
+                Натисни сега!
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(() => console.log('Service Worker Registered'))
+                .catch(error => console.log('Service Worker registration failed:', error));
+        }
+    </script>
+</body>
+</html>
